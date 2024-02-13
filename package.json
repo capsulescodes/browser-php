@@ -1,0 +1,31 @@
+{
+    "name" : "browser-php",
+    "description" : "PHP CLI and Web server on browser",
+    "version" : "0.1.0",
+    "author" : {
+        "name": "Yannick Decat",
+        "email": "yannick@capsules.codes",
+        "url": "https://capsules.codes/"
+    },
+    "scripts" : {
+        "build" : "esbuild src/cli.ts src/server.ts --bundle --platform=node --format=cjs --packages=external --minify --outdir=build"
+    },
+    "files" : [
+        "!*",
+        "build"
+    ],
+    "bin" : {
+        "serve" : "build/server.js",
+        "php" : "build/cli.js"
+    },
+    "dependencies" : {
+        "@php-wasm/node" : "^0.6.3",
+        "dotenv" : "^16.4.1",
+        "dotenv-expand" : "^10.0.0"
+    },
+    "devDependencies" : {
+        "@types/node" : "^20.11.16",
+        "esbuild" : "^0.20.0",
+        "typescript" : "^5.3.3"
+    }
+}

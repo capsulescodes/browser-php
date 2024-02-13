@@ -1,0 +1,15 @@
+{
+    "compilerOptions" : {
+        "target" : "esnext",
+        "module" : "esnext",
+        "moduleResolution" : "node",
+        "isolatedModules" : true,
+        "strict" : true,
+        "importHelpers" : true,
+        "removeComments" : true,
+        "skipLibCheck" : true,
+        "strictNullChecks" : true,
+        "allowSyntheticDefaultImports" : true,
+    },
+    "exclude" : [ "node_modules/**/*" ]
+}
