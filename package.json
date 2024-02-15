@@ -1,7 +1,18 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.1.2",
+    "version" : "0.1.3",
+    "keywords": [
+        "browser",
+        "node",
+        "php"
+    ],
+    "homepage": "https://github.com/capsulescodes/browser-php",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/capsulescodes/browser-php"
+    },
+    "license": "MIT",
     "author" : {
         "name": "Yannick Decat",
         "email": "yannick@capsules.codes",
