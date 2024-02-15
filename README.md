@@ -1,5 +1,5 @@
 
-<p align="center"><img src="capsules-browser-php-image.svg" width="400px" height="265px" alt="Browser PHP" /></p>
+<p align="center"><img src="https://github.com/capsulescodes/browser-php/raw/main/capsules-browser-php-image.svg" width="400px" height="265px" alt="Browser PHP" /></p>
 
 Run any PHP stuff within your browser.
 

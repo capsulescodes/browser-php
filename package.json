@@ -1,7 +1,7 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.1.0",
+    "version" : "0.1.2",
     "author" : {
         "name": "Yannick Decat",
         "email": "yannick@capsules.codes",
