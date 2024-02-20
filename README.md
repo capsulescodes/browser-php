@@ -18,7 +18,7 @@ npm install --save-dev browser-php
 
 ## Usage
 
-This package gives access to two binaries `php` and `serve` :
+This package gives access to three binaries. `php` and `serve` from `node_modules`, `composer` from `vendor`.
 
 <br>
 
@@ -71,6 +71,39 @@ npm run serve
 
 
 > PHP server is listening on url http://localhost:2222
+```
+
+<br>
+<br>
+
+
+### Composer
+```
+node node_modules/.bin/php --disable-functions vendor/bin/composer
+```
+
+<br>
+
+Or add `script` in `package.json`
+```
+"scripts" : {
+    "composer": "php --disable-functions vendor/bin/composer"
+},
+```
+
+<br>
+
+Example
+```
+npm run composer
+
+>    ______
+>   / ____/___  ____ ___  ____  ____  ________  _____
+>  / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+> / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+> \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+>                     /_/
+> Composer version 2.7.1 2024-02-09 15:26:28
 ```
 
 <br>
