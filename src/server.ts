@@ -16,7 +16,7 @@ const app = http.createServer( async ( req, res ) =>
         {
             loading = true;
 
-            php = await NodePHP.load( environment.php as SupportedPHPVersion, { requestHandler : { documentRoot : environment.path, absoluteUrl : `${environment.host}:${environment.port}` } } );
+            php = await NodePHP.load( environment.php.version as SupportedPHPVersion, { requestHandler : { documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } } );
 
             php.useHostFilesystem();
 
@@ -56,7 +56,7 @@ const app = http.createServer( async ( req, res ) =>
 
             const response = await php.request( request );
 
-            if( environment.debug ) console.log( request, response );
+            if( environment.server.debug ) console.log( request, response );
 
             delete response.headers[ 'x-frame-options' ];
 
@@ -71,4 +71,4 @@ const app = http.createServer( async ( req, res ) =>
 
 } );
 
-app.listen( environment.port, async () => console.log( `\nPHP server is listening on ${environment.host}:${environment.port}\n` ) );
+app.listen( environment.server.port, async () => console.log( `\nPHP server is listening on ${environment.server.host}:${environment.server.port}\n` ) );

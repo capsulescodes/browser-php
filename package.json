@@ -1,7 +1,7 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.2.0",
+    "version" : "0.3.0",
     "keywords": [
         "browser",
         "node",
@@ -19,7 +19,8 @@
         "url": "https://capsules.codes/"
     },
     "scripts" : {
-        "build" : "esbuild src/cli.ts src/server.ts --bundle --platform=node --format=cjs --packages=external --minify --outdir=build"
+        "build" : "esbuild src/cli.ts src/installer.ts src/server.ts --bundle --platform=node --format=cjs --packages=external --minify --outdir=build",
+        "postinstall": "node build/installer.js"
     },
     "files" : [
         "!*",
@@ -31,12 +32,12 @@
     },
     "dependencies" : {
         "@php-wasm/node" : "^0.6.3",
-        "dotenv" : "^16.4.4",
-        "dotenv-expand" : "^11.0.4"
+        "dotenv" : "^16.4.5",
+        "dotenv-expand" : "^11.0.6"
     },
     "devDependencies" : {
         "@types/node" : "^20.11.19",
-        "esbuild" : "^0.20.0",
+        "esbuild" : "^0.20.1",
         "typescript" : "^5.3.3"
     }
 }

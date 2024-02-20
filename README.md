@@ -86,6 +86,10 @@ The scripts can be configured with environment variables
 - `BROWSER_PHP_PATH` : The directory path you need | default : `public`
 - `BROWSER_PHP_DEBUG` : The debug mode you need | default : `false`
 
+- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.7.1`
+- `BROWSER_PHP_COMPOSER_PATH` : The Composer executable path | default : `vendor/bin`
+- `BROWSER_PHP_COMPOSER_NAME` : The Composer executable name | default : `composer`
+
 <br>
 <br>
 
