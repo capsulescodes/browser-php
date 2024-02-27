@@ -7,6 +7,16 @@ The Browser PHP package offers a collection of commands for running PHP from the
 
 <br>
 
+ [This article](https://capsules.codes/en/blog/fyi/en-fyi-run-laravel-on-browser-with-browser-php) provides an in-depth exploration of the package.
+
+<br>
+
+> [!WARNING]
+> This package serves as a proof of concept and is currently under active development. We recommend exercising caution when using it.
+
+
+<br>
+
 ## Installation
 
 ```bash
