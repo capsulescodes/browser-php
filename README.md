@@ -3,7 +3,7 @@
 
 Run any PHP stuff within your browser.
 
-The Browser PHP package offers a collection of commands for running PHP from the Node CLI or for launching a PHP server from Node. Perfect for running a Laravel project in Stackblitz, for example.
+The Browser PHP package offers a collection of commands for running PHP from the Node CLI or for launching a PHP server from Node. Perfect for running a Laravel project in CodeSandbox, for example.
 
 <br>
 
