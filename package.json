@@ -1,7 +1,7 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.3.1",
+    "version" : "0.3.2",
     "keywords": [
         "browser",
         "node",
@@ -31,12 +31,12 @@
         "php" : "build/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^0.6.3",
+        "@php-wasm/node" : "^0.6.4",
         "dotenv" : "^16.4.5",
         "dotenv-expand" : "^11.0.6"
     },
     "devDependencies" : {
-        "@types/node" : "^20.11.21",
+        "@types/node" : "^20.11.24",
         "esbuild" : "^0.20.1",
         "typescript" : "^5.3.3"
     }
