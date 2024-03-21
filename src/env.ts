@@ -1,22 +1,17 @@
-import { config } from 'dotenv';
-import { expand } from 'dotenv-expand';
 import { SupportedPHPVersion } from '@php-wasm/node';
 
 
-const environment = expand( config() ).parsed;
-
-
 export default {
-    php : { version : environment?.BROWSER_PHP_VERSION != null ? environment?.BROWSER_PHP_VERSION as SupportedPHPVersion : '8.2' },
+    php : { version : process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION as SupportedPHPVersion : '8.2' },
     composer : {
-        version : environment?.BROWSER_PHP_COMPOSER_VERSION ?? '2.7.1',
-        path : environment?.BROWSER_PHP_COMPOSER_PATH ?? 'vendor/bin',
-        name : environment?.BROWSER_PHP_COMPOSER_NAME ?? 'composer',
+        name : process.env.BROWSER_PHP_COMPOSER_NAME ?? 'composer',
+        version : process.env.BROWSER_PHP_COMPOSER_VERSION ?? '2.7.1',
+        path : process.env.BROWSER_PHP_COMPOSER_PATH ?? 'vendor/bin',
     },
     server : {
-        host : environment?.BROWSER_PHP_HOST ?? 'http://localhost',
-        port : environment?.BROWSER_PHP_PORT ?? '2222',
-        path : environment?.BROWSER_PHP_PATH ?? 'public',
-        debug : environment?.BROWSER_PHP_DEBUG != null && environment?.BROWSER_PHP_DEBUG != 'false',
+        host : process.env.BROWSER_PHP_SERVER_HOST ?? 'http://localhost',
+        port : process.env.BROWSER_PHP_SERVER_PORT ?? '2222',
+        path : process.env.BROWSER_PHP_SERVER_PATH ?? 'public',
+        debug : process.env.BROWSER_PHP_SERVER_DEBUG != null && process.env.BROWSER_PHP_SERVER_DEBUG != 'false',
     }
 }

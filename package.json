@@ -1,43 +1,46 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.3.2",
-    "keywords": [
+    "version" : "0.4.0",
+    "keywords" : [
         "browser",
         "node",
         "php"
     ],
-    "homepage": "https://github.com/capsulescodes/browser-php",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/capsulescodes/browser-php"
+    "homepage" : "https://github.com/capsulescodes/browser-php",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/capsulescodes/browser-php"
     },
-    "license": "MIT",
+    "license" : "MIT",
     "author" : {
-        "name": "Yannick Decat",
-        "email": "yannick@capsules.codes",
-        "url": "https://capsules.codes/"
+        "name" : "Yannick Decat",
+        "email" : "yannick@capsules.codes",
+        "url" : "https://capsules.codes/"
     },
     "scripts" : {
-        "build" : "esbuild src/cli.ts src/installer.ts src/server.ts --bundle --platform=node --format=cjs --packages=external --minify --outdir=build",
-        "postinstall": "node build/installer.js"
+        "build" : "vite build",
+        "test" : "vitest run",
+        "postinstall" : "node dist/installer.js"
     },
     "files" : [
         "!*",
-        "build"
+        "bin",
+        "dist"
     ],
     "bin" : {
-        "serve" : "build/server.js",
-        "php" : "build/cli.js"
+        "serve" : "bin/server.js",
+        "php" : "bin/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^0.6.4",
-        "dotenv" : "^16.4.5",
-        "dotenv-expand" : "^11.0.6"
+        "@php-wasm/node" : "^0.6.8"
     },
     "devDependencies" : {
-        "@types/node" : "^20.11.24",
-        "esbuild" : "^0.20.1",
-        "typescript" : "^5.3.3"
-    }
+        "@types/node" : "^20.11.30",
+        "tsx" : "^4.7.1",
+        "typescript" : "^5.4.3",
+        "vite" : "^5.2.2",
+        "vitest" : "^1.4.0"
+    },
+    "type" : "module"
 }

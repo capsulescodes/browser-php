@@ -124,14 +124,15 @@ npm run composer
 The scripts can be configured with environment variables
 
 - `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.2`
-- `BROWSER_PHP_HOST` : The host name you need | default : `http://localhost`
-- `BROWSER_PHP_PORT` : The port you need | default : `2222`
-- `BROWSER_PHP_PATH` : The directory path you need | default : `public`
-- `BROWSER_PHP_DEBUG` : The debug mode you need | default : `false`
 
 - `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.7.1`
 - `BROWSER_PHP_COMPOSER_PATH` : The Composer executable path | default : `vendor/bin`
 - `BROWSER_PHP_COMPOSER_NAME` : The Composer executable name | default : `composer`
+
+- `BROWSER_PHP_SERVER_HOST` : The host name you need | default : `http://localhost`
+- `BROWSER_PHP_SERVER_PORT` : The port you need | default : `2222`
+- `BROWSER_PHP_SERVER_PATH` : The directory path you need | default : `public`
+- `BROWSER_PHP_SERVER_DEBUG` : The debug mode you need | default : `false`
 
 <br>
 <br>
