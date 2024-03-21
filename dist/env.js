@@ -1,8 +1,10 @@
-const R = {
+import { config as e } from "dotenv";
+e({ path: process.env.INIT_CWD ? `${process.env.INIT_CWD}/.env` : ".env" });
+const s = {
   php: { version: process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION : "8.2" },
   composer: {
     name: process.env.BROWSER_PHP_COMPOSER_NAME ?? "composer",
-    version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.7.1",
+    version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.7.2",
     path: process.env.BROWSER_PHP_COMPOSER_PATH ?? "vendor/bin"
   },
   server: {
@@ -13,5 +15,5 @@ const R = {
   }
 };
 export {
-  R as default
+  s as default
 };
