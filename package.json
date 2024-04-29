@@ -33,7 +33,7 @@
         "php" : "bin/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^0.6.15",
+        "@php-wasm/node" : "^0.7.1",
         "dotenv" : "^16.4.5"
     },
     "devDependencies" : {
