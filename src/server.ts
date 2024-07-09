@@ -2,23 +2,24 @@
 
 import http from 'http';
 import environment from './env';
-import { HTTPMethod, NodePHP, PHPRequest, SupportedPHPVersion } from '@php-wasm/node';
+import { PHP, PHPRequestHandler } from '@php-wasm/universal';
+import { HTTPMethod, loadNodeRuntime, PHPRequest, useHostFilesystem } from '@php-wasm/node';
 
 
-let php : NodePHP;
+let handler : PHPRequestHandler;
 let loading : boolean;
 
 const app = http.createServer( async ( req, res ) =>
 {
-    if( ! php )
+    if( ! handler )
     {
         if( ! loading )
         {
             loading = true;
 
-            php = await NodePHP.load( environment.php.version as SupportedPHPVersion, { requestHandler : { documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } } );
+            handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
 
-            php.useHostFilesystem();
+            useHostFilesystem( await handler.getPrimaryPhp() );
 
             loading = false;
 
@@ -54,7 +55,7 @@ const app = http.createServer( async ( req, res ) =>
 
             const request : PHPRequest = { method : req.method as HTTPMethod , url : req.url, headers : requestHeaders, body : await body };
 
-            const response = await php.request( request );
+            const response = await handler.request( request );
 
             if( environment.server.debug ) console.log( request, response );
 

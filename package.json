@@ -1,47 +1,48 @@
 {
-    "name" : "browser-php",
-    "description" : "PHP CLI and Web server on browser",
-    "version" : "0.4.2",
-    "keywords" : [
+    "name": "browser-php",
+    "description": "PHP CLI and Web server on browser",
+    "version": "0.5.0",
+    "keywords": [
         "browser",
         "node",
         "php"
     ],
-    "homepage" : "https://github.com/capsulescodes/browser-php",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/capsulescodes/browser-php"
+    "homepage": "https://github.com/capsulescodes/browser-php",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/capsulescodes/browser-php"
     },
-    "license" : "MIT",
-    "author" : {
-        "name" : "Yannick Decat",
-        "email" : "yannick@capsules.codes",
-        "url" : "https://capsules.codes/"
+    "license": "MIT",
+    "author": {
+        "name": "Yannick Decat",
+        "email": "yannick@capsules.codes",
+        "url": "https://capsules.codes/"
     },
-    "scripts" : {
-        "build" : "vite build",
-        "test" : "vitest run",
-        "postinstall" : "node dist/installer.js"
+    "scripts": {
+        "build": "vite build",
+        "test": "vitest run",
+        "postinstall": "node dist/installer.js"
     },
-    "files" : [
+    "files": [
         "!*",
         "bin",
         "dist"
     ],
-    "bin" : {
-        "serve" : "bin/server.js",
-        "php" : "bin/cli.js"
+    "bin": {
+        "serve": "bin/server.js",
+        "php": "bin/cli.js"
     },
-    "dependencies" : {
-        "@php-wasm/node" : "^0.6.15",
-        "dotenv" : "^16.4.5"
+    "dependencies": {
+        "@php-wasm/node": "^0.9.18",
+        "@php-wasm/universal": "^0.9.18",
+        "dotenv": "^16.4.5"
     },
-    "devDependencies" : {
-        "@types/node" : "^20.12.7",
-        "tsx" : "^4.7.2",
-        "typescript" : "^5.4.5",
-        "vite" : "^5.2.9",
-        "vitest" : "^1.5.0"
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "tsx": "^4.16.2",
+        "typescript": "^5.5.3",
+        "vite": "^5.3.3",
+        "vitest": "^2.0.1"
     },
-    "type" : "module"
+    "type": "module"
 }
