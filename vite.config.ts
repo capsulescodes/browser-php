@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 
+
 export default defineConfig( {
     build : {
         lib : {
@@ -13,7 +14,7 @@ export default defineConfig( {
         },
         outDir : '',
         rollupOptions : {
-            external: [ '@php-wasm/node', '@php-wasm/universal', 'dotenv', 'fs', 'http', 'https' ]
+            external : [ '@php-wasm/node', '@php-wasm/universal', 'dotenv', 'fs', 'http', 'https' ]
         },
         target : 'esnext'
     }

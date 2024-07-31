@@ -5,6 +5,7 @@
         "moduleResolution" : "node",
         "isolatedModules" : true,
         "strict" : true,
+        "types" : [ "node" ],
         "importHelpers" : true,
         "removeComments" : true,
         "skipLibCheck" : true,
