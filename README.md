@@ -11,12 +11,6 @@ The Browser PHP package offers a collection of commands for running PHP from the
 
 <br>
 
-> [!WARNING]
-> This package serves as a proof of concept and is currently under active development. We recommend exercising caution when using it.
-
-
-<br>
-
 ## Installation
 
 ```bash

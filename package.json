@@ -1,10 +1,10 @@
 {
     "name": "browser-php",
     "description": "PHP CLI and Web server on browser",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "keywords": [
-        "browser",
         "node",
+        "browser",
         "php"
     ],
     "homepage": "https://github.com/capsulescodes/browser-php",
@@ -33,16 +33,16 @@
         "php": "bin/cli.js"
     },
     "dependencies": {
-        "@php-wasm/node": "^0.9.18",
-        "@php-wasm/universal": "^0.9.18",
+        "@php-wasm/node": "^0.9.27",
+        "@php-wasm/universal": "^0.9.27",
         "dotenv": "^16.4.5"
     },
     "devDependencies": {
-        "@types/node": "^20.14.10",
-        "tsx": "^4.16.2",
-        "typescript": "^5.5.3",
-        "vite": "^5.3.3",
-        "vitest": "^2.0.1"
+        "@types/node": "^22.0.0",
+        "tsx": "^4.16.3",
+        "typescript": "^5.5.4",
+        "vite": "^5.3.5",
+        "vitest": "^2.0.5"
     },
     "type": "module"
 }
