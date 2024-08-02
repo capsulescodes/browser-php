@@ -2,4 +2,4 @@
 node_modules
 vendor
 package-lock.json
-.flint.local.config.js
+.flint.local.js
