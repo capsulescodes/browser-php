@@ -7,7 +7,6 @@ import environment from './env';
 
 https.get( `https://getcomposer.org/download/${environment.composer.version}/composer.phar`, response =>
 {
-
     const path = process.env.INIT_CWD ? `${process.env.INIT_CWD}/${environment.composer.path}` : environment.composer.path;
 
     if( ! fs.existsSync( path ) ) fs.mkdirSync( path, { recursive : true } );
