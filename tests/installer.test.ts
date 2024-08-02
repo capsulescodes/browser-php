@@ -1,11 +1,11 @@
 import fs from 'fs';
-import {  afterEach, describe, expect, it, vitest } from 'vitest';
+import { afterEach, describe, expect, it, vitest } from 'vitest';
 import { spawnSync } from 'child_process';
 
 
 afterEach( () =>
 {
-    if( fs.existsSync( `${process.cwd()}/vendor` ) ) fs.rmSync( `${process.cwd()}/vendor`, { recursive: true } );
+    if( fs.existsSync( `${process.cwd()}/vendor` ) ) fs.rmSync( `${process.cwd()}/vendor`, { recursive : true } );
 } );
 
 

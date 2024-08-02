@@ -34,7 +34,7 @@ const app = http.createServer( async ( req, res ) =>
     {
         if( req.url )
         {
-            let requestHeaders : Record<string, string> = {};
+            const requestHeaders : Record<string, string> = {};
 
             if( req.rawHeaders && req.rawHeaders.length )
             {
@@ -53,7 +53,7 @@ const app = http.createServer( async ( req, res ) =>
             } );
 
 
-            const request : PHPRequest = { method : req.method as HTTPMethod , url : req.url, headers : requestHeaders, body : await body };
+            const request : PHPRequest = { method : req.method as HTTPMethod, url : req.url, headers : requestHeaders, body : await body };
 
             const response = await handler.request( request );
 
@@ -62,7 +62,7 @@ const app = http.createServer( async ( req, res ) =>
             delete response.headers[ 'x-frame-options' ];
 
 
-            Object.keys( response.headers ).forEach( key => { res.setHeader( key, response.headers[ key ] ) } );
+            Object.keys( response.headers ).forEach( key => res.setHeader( key, response.headers[ key ] ) );
 
             res.statusCode = response.httpStatusCode;
 
