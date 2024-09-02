@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import t from "fs";
-import s from "https";
-import e from "./env.js";
-s.get(`https://getcomposer.org/download/${e.composer.version}/composer.phar`, (o) => {
-  let r = process.env.INIT_CWD ? `${process.env.INIT_CWD}/${e.composer.path}` : e.composer.path;
-  t.existsSync(r) || t.mkdirSync(r, { recursive: !0 });
-  const p = t.createWriteStream(`${r}/${e.composer.name}`);
-  o.pipe(p);
-}).on("error", (o) => {
-  throw o;
+import p from "https";
+import o from "./env.js";
+p.get(`https://getcomposer.org/download/${o.composer.version}/composer.phar`, (r) => {
+  const e = process.env.INIT_CWD ? `${process.env.INIT_CWD}/${o.composer.path}` : o.composer.path;
+  t.existsSync(e) || t.mkdirSync(e, { recursive: !0 });
+  const s = t.createWriteStream(`${e}/${o.composer.name}`);
+  r.pipe(s);
+}).on("error", (r) => {
+  throw r;
 });

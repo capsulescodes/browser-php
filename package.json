@@ -29,22 +29,22 @@
         "dist"
     ],
     "bin" : {
-        "serve" : "bin/server.js",
-        "php" : "bin/cli.js"
+        "php-server" : "bin/server.js",
+        "php-cli" : "bin/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^0.9.27",
-        "@php-wasm/universal" : "^0.9.27",
+        "@php-wasm/node" : "^0.9.35",
+        "@php-wasm/universal" : "^0.9.35",
         "dotenv" : "^16.4.5"
     },
     "devDependencies" : {
-        "@stylistic/eslint-plugin" : "^2.6.1",
-        "@types/node" : "^22.0.0",
-        "eslint" : "^9.8.0",
-        "tsx" : "^4.16.3",
+        "@stylistic/eslint-plugin" : "^2.7.2",
+        "@types/node" : "^22.5.2",
+        "eslint" : "^9.9.1",
+        "tsx" : "^4.19.0",
         "typescript" : "^5.5.4",
-        "typescript-eslint" : "^8.0.0",
-        "vite" : "^5.3.5",
+        "typescript-eslint" : "^8.4.0",
+        "vite" : "^5.4.2",
         "vitest" : "^2.0.5"
     },
     "type" : "module"

@@ -22,13 +22,13 @@ npm install --save-dev browser-php
 
 ## Usage
 
-This package gives access to three binaries. `php` and `serve` from `node_modules`, `composer` from `vendor`.
+This package gives access to three binaries. `php-cli` and `php-server` from `node_modules`, `composer` from `vendor`.
 
 <br>
 
 ### PHP
 ```
-node node_modules/.bin/php
+node node_modules/.bin/php-cli
 ```
 
 <br>
@@ -36,7 +36,7 @@ node node_modules/.bin/php
 Or add `script` in `package.json`
 ```
 "scripts" : {
-    "php" : "php"
+    "php" : "php-cli"
 },
 ```
 
@@ -55,7 +55,7 @@ npm run php -r "echo 'Hello Browser PHP World!';"
 
 ### Serve
 ```
-node node_modules/.bin/serve
+node node_modules/.bin/php-server
 ```
 
 <br>
@@ -63,7 +63,7 @@ node node_modules/.bin/serve
 Or add `script` in `package.json`
 ```
 "scripts" : {
-    "serve" : "serve"
+    "serve" : "php-server"
 },
 ```
 
@@ -83,7 +83,7 @@ npm run serve
 
 ### Composer
 ```
-node node_modules/.bin/php --disable-functions vendor/bin/composer
+node node_modules/.bin/php vendor/bin/composer
 ```
 
 <br>
@@ -91,7 +91,7 @@ node node_modules/.bin/php --disable-functions vendor/bin/composer
 Or add `script` in `package.json`
 ```
 "scripts" : {
-    "composer": "php --disable-functions vendor/bin/composer"
+    "composer": "php-cli vendor/bin/composer"
 },
 ```
 
@@ -107,7 +107,7 @@ npm run composer
 > / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
 > \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
 >                     /_/
-> Composer version 2.7.2 2024-03-11 17:12:18
+> Composer version 2.7.7 2024-06-10 22:11:12
 ```
 
 <br>
@@ -119,7 +119,7 @@ The scripts can be configured with environment variables
 
 - `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.2`
 
-- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.7.2`
+- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.7.7`
 - `BROWSER_PHP_COMPOSER_PATH` : The Composer executable path | default : `vendor/bin`
 - `BROWSER_PHP_COMPOSER_NAME` : The Composer executable name | default : `composer`
 

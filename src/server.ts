@@ -2,8 +2,8 @@
 
 import http from 'http';
 import environment from './env';
-import { PHP, PHPRequestHandler } from '@php-wasm/universal';
-import { HTTPMethod, loadNodeRuntime, PHPRequest, useHostFilesystem } from '@php-wasm/node';
+import { PHP, PHPRequestHandler, HTTPMethod, PHPRequest } from '@php-wasm/universal';
+import { loadNodeRuntime, createNodeFsMountHandler } from '@php-wasm/node';
 
 
 let handler : PHPRequestHandler;
@@ -19,7 +19,13 @@ const app = http.createServer( async ( req, res ) =>
 
             handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
 
-            useHostFilesystem( await handler.getPrimaryPhp() );
+            const php = await handler.getPrimaryPhp();
+
+            php.mkdir( process.cwd() );
+
+            php.mount( process.cwd(), createNodeFsMountHandler( process.cwd() ) );
+
+            php.chdir( process.cwd() );
 
             loading = false;
 

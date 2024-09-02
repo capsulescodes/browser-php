@@ -16,18 +16,8 @@ describe( 'installer', () =>
         const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/installer.ts` ] );
 
         expect( task.status ).toEqual( 0 );
+
         expect( fs.existsSync( `${process.cwd()}/vendor/bin/composer` ) ).toEqual( true );
-    } );
-
-    it( 'should download the default composer binary version', async () =>
-    {
-        const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/installer.ts` ] );
-
-        const environment = await import( '../src/env' );
-
-        expect( task.status ).toEqual( 0 );
-        expect( fs.existsSync( `${process.cwd()}/vendor/bin/composer` ) ).toEqual( true );
-        expect( fs.readFileSync( `${process.cwd()}/vendor/bin/composer` ).toString() ).toContain( `const VERSION = '${environment.default.composer.version}';` );
     } );
 
     it( 'should download the given composer binary version', async () =>
@@ -37,7 +27,28 @@ describe( 'installer', () =>
         const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/installer.ts` ] );
 
         expect( task.status ).toEqual( 0 );
+
         expect( fs.existsSync( `${process.cwd()}/vendor/bin/composer` ) ).toEqual( true );
+
         expect( fs.readFileSync( `${process.cwd()}/vendor/bin/composer` ).toString() ).toContain( `const VERSION = '1.2.3';` );
+    } );
+
+    it( 'should run composer by giving the current Composer version', async () =>
+    {
+        const environment = await import( '../src/env' );
+
+        const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/installer.ts` ] );
+
+        expect( task.status ).toEqual( 0 );
+
+        expect( fs.existsSync( `${process.cwd()}/vendor/bin/composer` ) ).toEqual( true );
+
+        expect( fs.readFileSync( `${process.cwd()}/vendor/bin/composer` ).toString() ).toContain( `const VERSION = '${environment.default.composer.version}';` );
+
+        const args = [ `${process.cwd()}/vendor/bin/composer` ];
+
+        const composer = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/cli.ts`, ...args ] );
+
+        expect( composer.stdout.toString() ).toContain( `Composer version ${environment.default.composer.version}` );
     } );
 } );
