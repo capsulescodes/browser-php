@@ -15,4 +15,13 @@ php.mount( process.cwd(), createNodeFsMountHandler( process.cwd() ) );
 php.chdir( process.cwd() );
 
 
-php.cli( [ 'php', ...process.argv.slice( 2 ) ] ).catch( ( result : string ) => { throw result; } ).finally( () => process.exit( 0 ) );
+let args = process.argv.slice( 2 );
+
+if( args.includes( '--disable-functions' ) )
+{
+    args.splice( args.indexOf( '--disable-functions' ), 1 );
+
+    args = [ '-d', 'disable_functions=proc_open,popen', ...args ];
+}
+
+php.cli( [ 'php', ...args ] ).catch( ( result : string ) => { throw result; } ).finally( () => process.exit( 0 ) );
