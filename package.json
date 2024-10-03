@@ -1,7 +1,7 @@
 {
     "name" : "browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.5.3",
+    "version" : "0.5.4",
     "keywords" : [
         "node",
         "browser",
