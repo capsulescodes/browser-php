@@ -34,7 +34,7 @@
     },
     "dependencies" : {
         "@php-wasm/node" : "^0.9.45",
-        "@php-wasm/universal" : "^0.9.45",
+        "@php-wasm/universal" : "^1.0.8",
         "dotenv" : "^16.4.5",
         "vite" : "^5.4.8"
     },
