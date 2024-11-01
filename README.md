@@ -14,7 +14,7 @@ The Browser PHP package offers a collection of commands for running PHP from the
 ## Installation
 
 ```bash
-npm install --save-dev browser-php
+npm install --save-dev @capsulescodes/browser-php
 ```
 
 <br>
@@ -133,9 +133,7 @@ The scripts can be configured with environment variables
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
 ## Credits

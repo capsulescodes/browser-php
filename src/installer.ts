@@ -5,9 +5,12 @@ import https from 'https';
 import environment from './env';
 
 
+if( process.env.INIT_CWD === process.cwd() && ! process.env.VITEST ) process.exit();
+
+
 https.get( `https://getcomposer.org/download/${environment.composer.version}/composer.phar`, response =>
 {
-    const path = process.env.INIT_CWD ? `${process.env.INIT_CWD}/${environment.composer.path}` : environment.composer.path;
+    const path = process.env.INIT_CWD ? `${process.cwd()}/${environment.composer.path}` : environment.composer.path;
 
     if( ! fs.existsSync( path ) ) fs.mkdirSync( path, { recursive : true } );
 

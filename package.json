@@ -1,7 +1,7 @@
 {
-    "name" : "browser-php",
+    "name" : "@capsulescodes/browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.5.4",
+    "version" : "0.5.5",
     "keywords" : [
         "node",
         "browser",
@@ -10,7 +10,7 @@
     "homepage" : "https://github.com/capsulescodes/browser-php",
     "repository" : {
         "type" : "git",
-        "url" : "https://github.com/capsulescodes/browser-php"
+        "url" : "git+https://github.com/capsulescodes/browser-php.git"
     },
     "license" : "MIT",
     "author" : {
@@ -33,19 +33,19 @@
         "php-cli" : "bin/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^0.9.45",
-        "@php-wasm/universal" : "^0.9.45",
+        "@php-wasm/node" : "^1.0.8",
+        "@php-wasm/universal" : "^1.0.8",
         "dotenv" : "^16.4.5",
-        "vite" : "^5.4.8"
+        "vite" : "^5.4.10"
     },
     "devDependencies" : {
-        "@stylistic/eslint-plugin" : "^2.8.0",
-        "@types/node" : "^22.7.4",
-        "eslint" : "^9.11.1",
-        "tsx" : "^4.19.1",
-        "typescript" : "^5.6.2",
-        "typescript-eslint" : "^8.8.0",
-        "vitest" : "^2.1.2"
+        "@stylistic/eslint-plugin" : "^2.10.1",
+        "@types/node" : "^22.8.6",
+        "eslint" : "^9.13.0",
+        "tsx" : "^4.19.2",
+        "typescript" : "^5.6.3",
+        "typescript-eslint" : "^8.12.2",
+        "vitest" : "^2.1.4g"
     },
     "type" : "module"
 }
