@@ -36,7 +36,7 @@
         "@php-wasm/node" : "^1.0.8",
         "@php-wasm/universal" : "^1.0.8",
         "dotenv" : "^16.4.5",
-        "vite" : "^5.4.10"
+        "vite" : "^6.0.1"
     },
     "devDependencies" : {
         "@stylistic/eslint-plugin" : "^2.10.1",
