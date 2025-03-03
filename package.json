@@ -1,7 +1,7 @@
 {
     "name" : "@capsulescodes/browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.5.8",
+    "version" : "0.5.9",
     "keywords" : [
         "node",
         "browser",
@@ -33,19 +33,19 @@
         "php-cli" : "bin/cli.js"
     },
     "dependencies" : {
-        "@php-wasm/node" : "^1.0.23",
-        "@php-wasm/universal" : "^1.0.23",
+        "@php-wasm/node" : "^1.0.28",
+        "@php-wasm/universal" : "^1.0.28",
         "dotenv" : "^16.4.7",
-        "vite" : "^6.0.11"
+        "vite" : "^6.2.0"
     },
     "devDependencies" : {
-        "@stylistic/eslint-plugin" : "^3.0.1",
-        "@types/node" : "^22.13.0",
-        "eslint" : "^9.19.0",
-        "tsx" : "^4.19.2",
+        "@stylistic/eslint-plugin" : "^4.1.0",
+        "@types/node" : "^22.13.8",
+        "eslint" : "^9.21.0",
+        "tsx" : "^4.19.3",
         "typescript" : "^5.7.3",
-        "typescript-eslint" : "^8.22.0",
-        "vitest" : "^3.0.4"
+        "typescript-eslint" : "^8.25.0",
+        "vitest" : "^3.0.7"
     },
     "type" : "module"
 }
