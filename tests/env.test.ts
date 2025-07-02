@@ -10,11 +10,12 @@ describe( 'environment', () =>
     {
         const environment = await import( '../src/env' );
 
-        expect( environment.default.php.version ).toEqual( '8.2' );
+        expect( environment.default.php.version ).toEqual( '8.3' );
+        expect( environment.default.php.cli ).toEqual( 'xterm' );
 
         expect( environment.default.composer.name ).toEqual( 'composer' );
         expect( environment.default.composer.path ).toEqual( 'vendor/bin' );
-        expect( environment.default.composer.version ).toEqual( '2.7.7' );
+        expect( environment.default.composer.version ).toEqual( '2.8.9' );
 
         expect( environment.default.server.host ).toEqual( 'http://localhost' );
         expect( environment.default.server.port ).toEqual( '2222' );
@@ -24,7 +25,8 @@ describe( 'environment', () =>
 
     it( 'should use given environment variable values', async () =>
     {
-        vitest.stubEnv( 'BROWSER_PHP_VERSION', '8.3' );
+        vitest.stubEnv( 'BROWSER_PHP_VERSION', '8.0' );
+        vitest.stubEnv( 'BROWSER_PHP_CLI', 'not-xterm' );
 
         vitest.stubEnv( 'BROWSER_PHP_COMPOSER_NAME', 'foo' );
         vitest.stubEnv( 'BROWSER_PHP_COMPOSER_PATH', 'bar/baz' );
@@ -37,7 +39,8 @@ describe( 'environment', () =>
 
         const environment = await import( '../src/env' );
 
-        expect( environment.default.php.version ).toEqual( '8.3' );
+        expect( environment.default.php.version ).toEqual( '8.0' );
+        expect( environment.default.php.cli ).toEqual( 'not-xterm' );
 
         expect( environment.default.composer.name ).toEqual( 'foo' );
         expect( environment.default.composer.path ).toEqual( 'bar/baz' );

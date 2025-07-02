@@ -117,9 +117,10 @@ npm run composer
 
 The scripts can be configured with environment variables
 
-- `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.2`
+- `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.3`
+- `BROWSER_PHP_CLI` : The CLI output mode | default : `xterm`
 
-- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.7.7`
+- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.8.9`
 - `BROWSER_PHP_COMPOSER_PATH` : The Composer executable path | default : `vendor/bin`
 - `BROWSER_PHP_COMPOSER_NAME` : The Composer executable name | default : `composer`
 
