@@ -15,7 +15,7 @@ describe( 'environment', () =>
 
         expect( environment.default.composer.name ).toEqual( 'composer' );
         expect( environment.default.composer.path ).toEqual( 'vendor/bin' );
-        expect( environment.default.composer.version ).toEqual( '2.8.9' );
+        expect( environment.default.composer.version ).toEqual( '2.8.10' );
 
         expect( environment.default.server.host ).toEqual( 'http://localhost' );
         expect( environment.default.server.port ).toEqual( '2222' );

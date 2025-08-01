@@ -19,7 +19,7 @@ let args = process.argv.slice( 2 );
 const response = await php.cli( [ 'php', ...args ] );
 
 
-response.stderr.pipeTo( new WritableStream( { write( chunk ){ process.stderr.write(chunk) } } ) );
+response.stderr.pipeTo( new WritableStream( { write( chunk ){ process.stderr.write( chunk ) } } ) );
 response.stdout.pipeTo( new WritableStream( { write( chunk ){ process.stdout.write( chunk ) } } ) );
 response.exitCode.finally( () => setTimeout( () => process.exit( 0 ), 100 ) );
 
