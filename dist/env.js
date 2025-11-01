@@ -1,10 +1,10 @@
 import { config as e } from "dotenv";
 e({ path: process.env.INIT_CWD ? `${process.env.INIT_CWD}/.env` : ".env" });
 const s = {
-  php: { version: process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION : "8.2" },
+  php: { version: process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION : "8.3" },
   composer: {
     name: process.env.BROWSER_PHP_COMPOSER_NAME ?? "composer",
-    version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.7.7",
+    version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.8.11",
     path: process.env.BROWSER_PHP_COMPOSER_PATH ?? "vendor/bin"
   },
   server: {
