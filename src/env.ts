@@ -6,12 +6,12 @@ config( { path : process.env.INIT_CWD ? `${process.env.INIT_CWD}/.env` : '.env',
 
 export default {
     php : {
-        version : process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION as SupportedPHPVersion : '8.3',
+        version : process.env.BROWSER_PHP_VERSION != null ? process.env.BROWSER_PHP_VERSION as SupportedPHPVersion : '8.4',
         cli : process.env.BROWSER_PHP_CLI ?? 'xterm'
     },
     composer : {
         name : process.env.BROWSER_PHP_COMPOSER_NAME ?? 'composer',
-        version : process.env.BROWSER_PHP_COMPOSER_VERSION ?? '2.8.12',
+        version : process.env.BROWSER_PHP_COMPOSER_VERSION ?? '2.9.2',
         path : process.env.BROWSER_PHP_COMPOSER_PATH ?? 'vendor/bin'
     },
     server : {

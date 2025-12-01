@@ -10,12 +10,12 @@ describe( 'environment', () =>
     {
         const environment = await import( '../src/env' );
 
-        expect( environment.default.php.version ).toEqual( '8.3' );
+        expect( environment.default.php.version ).toEqual( '8.4' );
         expect( environment.default.php.cli ).toEqual( 'xterm' );
 
         expect( environment.default.composer.name ).toEqual( 'composer' );
         expect( environment.default.composer.path ).toEqual( 'vendor/bin' );
-        expect( environment.default.composer.version ).toEqual( '2.8.12' );
+        expect( environment.default.composer.version ).toEqual( '2.9.2' );
 
         expect( environment.default.server.host ).toEqual( 'http://localhost' );
         expect( environment.default.server.port ).toEqual( '2222' );
