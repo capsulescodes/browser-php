@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { PHP } from '@php-wasm/universal';
+import { PHP, sandboxedSpawnHandlerFactory } from '@php-wasm/universal';
 import { createNodeFsMountHandler, loadNodeRuntime } from '@php-wasm/node';
 import environment from './env';
 
@@ -11,6 +11,8 @@ const php : PHP = new PHP( await loadNodeRuntime( environment.php.version, { ems
 php.mkdir( process.cwd() );
 php.mount( process.cwd(), createNodeFsMountHandler( process.cwd() ) );
 php.chdir( process.cwd() );
+
+await php.setSpawnHandler( sandboxedSpawnHandlerFactory( async () => ( { php, reap : () => {} } ) ) );
 
 
 let args = process.argv.slice( 2 );

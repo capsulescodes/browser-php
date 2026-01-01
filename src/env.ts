@@ -11,7 +11,7 @@ export default {
     },
     composer : {
         name : process.env.BROWSER_PHP_COMPOSER_NAME ?? 'composer',
-        version : process.env.BROWSER_PHP_COMPOSER_VERSION ?? '2.9.2',
+        version : process.env.BROWSER_PHP_COMPOSER_VERSION ?? '2.9.3',
         path : process.env.BROWSER_PHP_COMPOSER_PATH ?? 'vendor/bin'
     },
     server : {
