@@ -1,7 +1,7 @@
 {
     "name" : "@capsulescodes/browser-php",
     "description" : "PHP CLI and Web server on browser",
-    "version" : "0.6.7",
+    "version" : "0.6.8",
     "keywords" : [
         "node",
         "browser",

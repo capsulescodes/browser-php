@@ -1,8 +1,7 @@
 name : Publish Package to NPM
 on :
-  push :
-    tags :
-      - 'v*'
+  release :
+    types : [ published ]
 permissions :
   id-token : write
   contents : read
