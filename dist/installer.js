@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-import s from "fs";
-import t from "https";
-import e from "./env.js";
-process.env.INIT_CWD === process.cwd() && !process.env.VITEST && process.exit();
-t.get(`https://getcomposer.org/download/${e.composer.version}/composer.phar`, (o) => {
-  const r = process.env.INIT_CWD ? `${process.cwd()}/${e.composer.path}` : e.composer.path;
-  s.existsSync(r) || s.mkdirSync(r, { recursive: !0 });
-  const p = s.createWriteStream(`${r}/${e.composer.name}`);
-  o.pipe(p);
-}).on("error", (o) => {
-  throw o;
+import { t as e } from "./env.js";
+import t from "fs";
+import n from "https";
+process.env.INIT_CWD === process.cwd() && !process.env.VITEST && process.exit(), n.get(`https://getcomposer.org/download/${e.composer.version}/composer.phar`, (n) => {
+	let r = process.env.INIT_CWD ? `${process.cwd()}/${e.composer.path}` : e.composer.path;
+	t.existsSync(r) || t.mkdirSync(r, { recursive: !0 });
+	let i = t.createWriteStream(`${r}/${e.composer.name}`);
+	n.pipe(i);
+}).on("error", (e) => {
+	throw e;
 });
+//#endregion

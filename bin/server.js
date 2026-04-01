@@ -1,28 +1,34 @@
 #!/usr/bin/env node
-import h from "http";
-import r from "../dist/env.js";
-import { PHPRequestHandler as u, PHP as m } from "@php-wasm/universal";
-import { loadNodeRuntime as w, createNodeFsMountHandler as f } from "@php-wasm/node";
-let n, d;
-const H = h.createServer(async (e, o) => {
-  if (n) {
-    if (e.url) {
-      const s = {};
-      if (e.rawHeaders && e.rawHeaders.length)
-        for (let t = 0; t < e.rawHeaders.length; t += 2)
-          s[e.rawHeaders[t]] = e.rawHeaders[t + 1];
-      const l = new Promise((t) => {
-        const i = [];
-        e.on("data", (p) => i.push(p)).on("end", () => t(Buffer.concat(i).toString()));
-      }), c = { method: e.method, url: e.url, headers: s, body: await l }, a = await n.request(c);
-      r.server.debug && console.log(c, a), delete a.headers["x-frame-options"], Object.keys(a.headers).forEach((t) => o.setHeader(t, a.headers[t])), o.statusCode = a.httpStatusCode, o.end(a.bytes);
-    }
-  } else if (!d) {
-    d = !0, n = new u({ phpFactory: async () => new m(await w(r.php.version)), documentRoot: r.server.path, absoluteUrl: `${r.server.host}:${r.server.port}` });
-    const s = await n.getPrimaryPhp();
-    s.mkdir(process.cwd()), s.mount(process.cwd(), f(process.cwd())), s.chdir(process.cwd()), d = !1, o.statusCode = 302, o.setHeader("location", e.url ?? ""), o.end();
-  }
-});
-H.listen(r.server.port, async () => console.log(`
-PHP server is listening on ${r.server.host}:${r.server.port}
-`));
+import { t as e } from "../dist/env.js";
+import { PHP as t, PHPRequestHandler as n } from "@php-wasm/universal";
+import { createNodeFsMountHandler as r, loadNodeRuntime as i } from "@php-wasm/node";
+import a from "http";
+//#region src/server.ts
+var o, s;
+a.createServer(async (a, c) => {
+	if (!o) {
+		if (!s) {
+			s = !0, o = new n({
+				phpFactory: async () => new t(await i(e.php.version)),
+				documentRoot: e.server.path,
+				absoluteUrl: `${e.server.host}:${e.server.port}`
+			});
+			let l = await o.getPrimaryPhp();
+			l.mkdir(process.cwd()), l.mount(process.cwd(), r(process.cwd())), l.chdir(process.cwd()), s = !1, c.statusCode = 302, c.setHeader("location", a.url ?? ""), c.end();
+		}
+	} else if (a.url) {
+		let t = {};
+		if (a.rawHeaders && a.rawHeaders.length) for (let e = 0; e < a.rawHeaders.length; e += 2) t[a.rawHeaders[e]] = a.rawHeaders[e + 1];
+		let n = new Promise((e) => {
+			let t = [];
+			a.on("data", (e) => t.push(e)).on("end", () => e(Buffer.concat(t).toString()));
+		}), r = {
+			method: a.method,
+			url: a.url,
+			headers: t,
+			body: await n
+		}, i = await o.request(r);
+		e.server.debug && console.log(r, i), delete i.headers["x-frame-options"], Object.keys(i.headers).forEach((e) => c.setHeader(e, i.headers[e])), c.statusCode = i.httpStatusCode, c.end(i.bytes);
+	}
+}).listen(e.server.port, async () => console.log(`\nPHP server is listening on ${e.server.host}:${e.server.port}\n`));
+//#endregion

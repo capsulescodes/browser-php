@@ -1,50 +1,50 @@
 {
-    "name" : "@capsulescodes/browser-php",
-    "description" : "PHP CLI and Web server on browser",
-    "version" : "0.6.10",
-    "keywords" : [
-        "node",
-        "browser",
-        "php"
-    ],
-    "homepage" : "https://github.com/capsulescodes/browser-php",
-    "repository" : {
-        "type" : "git",
-        "url" : "git+https://github.com/capsulescodes/browser-php.git"
-    },
-    "license" : "MIT",
-    "author" : {
-        "name" : "Yannick Decat",
-        "email" : "yannick@capsules.codes",
-        "url" : "https://capsules.codes/"
-    },
-    "scripts" : {
-        "build" : "vite build",
-        "test" : "vitest run",
-        "postinstall" : "node dist/installer.js"
-    },
-    "files" : [
-        "!*",
-        "bin",
-        "dist"
-    ],
-    "bin" : {
-        "php-server" : "bin/server.js",
-        "php-cli" : "bin/cli.js"
-    },
-    "dependencies" : {
-        "@php-wasm/node" : "^3.1.2",
-        "@dotenvx/dotenvx" : "^1.52.0",
-        "vite" : "^7.3.1"
-    },
-    "devDependencies" : {
-        "@stylistic/eslint-plugin" : "^5.9.0",
-        "@types/node" : "^25.3.3",
-        "eslint" : "^10.0.2",
-        "tsx" : "^4.21.0",
-        "typescript" : "^5.9.3",
-        "typescript-eslint" : "^8.56.1",
-        "vitest" : "^4.0.18"
-    },
-    "type" : "module"
+	"name" : "@capsulescodes/browser-php",
+	"description" : "PHP CLI and Web server on browser",
+	"version" : "0.6.11",
+	"keywords" : [
+		"node",
+		"browser",
+		"php"
+	],
+	"homepage" : "https://github.com/capsulescodes/browser-php",
+	"repository" : {
+		"type" : "git",
+		"url" : "git+https://github.com/capsulescodes/browser-php.git"
+	},
+	"license" : "MIT",
+	"author" : {
+		"name" : "Yannick Decat",
+		"email" : "yannick@capsules.codes",
+		"url" : "https://capsules.codes/"
+	},
+	"scripts" : {
+		"build" : "vite build",
+		"test" : "vitest run",
+		"postinstall" : "node dist/installer.js"
+	},
+	"files" : [
+		"!*",
+		"bin",
+		"dist"
+	],
+	"bin" : {
+		"php-server" : "bin/server.js",
+		"php-cli" : "bin/cli.js"
+	},
+	"dependencies" : {
+		"@php-wasm/node" : "^3.1.15",
+		"@dotenvx/dotenvx" : "^1.59.1",
+		"vite" : "^8.0.3"
+	},
+	"devDependencies" : {
+		"@stylistic/eslint-plugin" : "^5.10.0",
+		"@types/node" : "^25.5.0",
+		"eslint" : "^10.1.0",
+		"tsx" : "^4.21.0",
+		"typescript" : "^6.0.2",
+		"typescript-eslint" : "^8.58.0",
+		"vitest" : "^4.1.2"
+	},
+	"type" : "module"
 }
