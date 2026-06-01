@@ -10,12 +10,12 @@ if( process.env.INIT_CWD === process.cwd() && ! process.env.VITEST ) process.exi
 
 https.get( `https://getcomposer.org/download/${environment.composer.version}/composer.phar`, response =>
 {
-    const path = process.env.INIT_CWD ? `${process.cwd()}/${environment.composer.path}` : environment.composer.path;
+	const path = process.env.INIT_CWD ? `${process.cwd()}/${environment.composer.path}` : environment.composer.path;
 
-    if( ! fs.existsSync( path ) ) fs.mkdirSync( path, { recursive : true } );
+	if( ! fs.existsSync( path ) ) fs.mkdirSync( path, { recursive : true } );
 
-    const file = fs.createWriteStream( `${path}/${environment.composer.name}` );
+	const file = fs.createWriteStream( `${path}/${environment.composer.name}` );
 
-    response.pipe( file );
+	response.pipe( file );
 
 } ).on( 'error', error => { throw error; } );

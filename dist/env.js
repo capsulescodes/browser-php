@@ -12,7 +12,7 @@ var t = {
 	},
 	composer: {
 		name: process.env.BROWSER_PHP_COMPOSER_NAME ?? "composer",
-		version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.9.5",
+		version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.10.0",
 		path: process.env.BROWSER_PHP_COMPOSER_PATH ?? "vendor/bin"
 	},
 	server: {

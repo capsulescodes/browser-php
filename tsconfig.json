@@ -1,16 +1,15 @@
 {
-    "compilerOptions" : {
-        "target" : "esnext",
-        "module" : "esnext",
-        "moduleResolution" : "node",
-        "isolatedModules" : true,
-        "strict" : true,
-        "types" : [ "node" ],
-        "importHelpers" : true,
-        "removeComments" : true,
-        "skipLibCheck" : true,
-        "strictNullChecks" : true,
-        "allowSyntheticDefaultImports" : true
-    },
-    "exclude" : [ "node_modules/**/*" ]
+	"compilerOptions" : {
+		"target" : "esnext",
+		"module" : "esnext",
+		"isolatedModules" : true,
+		"strict" : true,
+		"types" : [ "node" ],
+		"importHelpers" : true,
+		"removeComments" : true,
+		"skipLibCheck" : true,
+		"strictNullChecks" : true,
+		"allowSyntheticDefaultImports" : true
+	},
+	"exclude" : [ "node_modules/**/*" ]
 }

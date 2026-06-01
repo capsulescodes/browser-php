@@ -27,7 +27,7 @@ response.exitCode.finally( () => setTimeout( () => process.exit( 0 ), 100 ) );
 
 
 
-// Teporary filter out noisy stderr messages from php-wasm (e.g. exit(0), ErrorEvent)
+// Temporary filter out noisy stderr messages from php-wasm (e.g. exit(0), ErrorEvent)
 const originalStderrWrite = process.stderr.write;
 process.stderr.write = function( chunk : string, encoding ? : BufferEncoding | ( () => void ), callback ? : () => void ) : boolean
 {

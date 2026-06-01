@@ -11,70 +11,70 @@ let loading : boolean;
 
 const app = http.createServer( async ( req, res ) =>
 {
-    if( ! handler )
-    {
-        if( ! loading )
-        {
-            loading = true;
+	if( ! handler )
+	{
+		if( ! loading )
+		{
+			loading = true;
 
-            handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
+			handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
 
-            const php = await handler.getPrimaryPhp();
+			const php = await handler.getPrimaryPhp();
 
-            php.mkdir( process.cwd() );
+			php.mkdir( process.cwd() );
 
-            php.mount( process.cwd(), createNodeFsMountHandler( process.cwd() ) );
+			php.mount( process.cwd(), createNodeFsMountHandler( process.cwd() ) );
 
-            php.chdir( process.cwd() );
+			php.chdir( process.cwd() );
 
-            loading = false;
+			loading = false;
 
-            res.statusCode = 302;
+			res.statusCode = 302;
 
-            res.setHeader( 'location', req.url ?? '' );
+			res.setHeader( 'location', req.url ?? '' );
 
-            res.end();
-        }
-    }
-    else
-    {
-        if( req.url )
-        {
-            const requestHeaders : Record<string, string> = {};
+			res.end();
+		}
+	}
+	else
+	{
+		if( req.url )
+		{
+			const requestHeaders : Record<string, string> = {};
 
-            if( req.rawHeaders && req.rawHeaders.length )
-            {
-                for( let i = 0; i < req.rawHeaders.length; i += 2 )
-                {
-                    requestHeaders[ req.rawHeaders[ i ] ] = req.rawHeaders[ i + 1 ];
-                }
-            }
-
-
-            const body : Promise<string> = new Promise( resolve =>
-            {
-                const bodyParts : unknown[] = [];
-
-                req.on( 'data', chunk => bodyParts.push( chunk ) ).on( 'end', () => resolve( Buffer.concat( bodyParts as readonly Uint8Array[] ).toString() ) );
-            } );
+			if( req.rawHeaders && req.rawHeaders.length )
+			{
+				for( let i = 0; i < req.rawHeaders.length; i += 2 )
+				{
+					requestHeaders[ req.rawHeaders[ i ] ] = req.rawHeaders[ i + 1 ];
+				}
+			}
 
 
-            const request : PHPRequest = { method : req.method as HTTPMethod, url : req.url, headers : requestHeaders, body : await body };
+			const body : Promise<string> = new Promise( resolve =>
+			{
+				const bodyParts : unknown[] = [];
 
-            const response = await handler.request( request );
-
-            if( environment.server.debug ) console.log( request, response );
-
-            delete response.headers[ 'x-frame-options' ];
+				req.on( 'data', chunk => bodyParts.push( chunk ) ).on( 'end', () => resolve( Buffer.concat( bodyParts as readonly Uint8Array[] ).toString() ) );
+			} );
 
 
-            Object.keys( response.headers ).forEach( key => res.setHeader( key, response.headers[ key ] ) );
+			const request : PHPRequest = { method : req.method as HTTPMethod, url : req.url, headers : requestHeaders, body : await body };
 
-            res.statusCode = response.httpStatusCode;
+			const response = await handler.request( request );
 
-            res.end( response.bytes );
-        }
-    }
+			if( environment.server.debug ) console.log( request, response );
+
+			delete response.headers[ 'x-frame-options' ];
+
+
+			Object.keys( response.headers ).forEach( key => res.setHeader( key, response.headers[ key ] ) );
+
+			res.statusCode = response.httpStatusCode;
+
+			res.end( response.bytes );
+		}
+	}
 
 } );
 
