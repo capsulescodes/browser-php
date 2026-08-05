@@ -107,7 +107,7 @@ npm run composer
 > / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
 > \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
 >                     /_/
-> Composer version 2.9.3 2025-12-30 13:40:17
+> Composer version 2.10.1 2026-06-04 10:25:59
 ```
 
 <br>
@@ -117,10 +117,10 @@ npm run composer
 
 The scripts can be configured with environment variables
 
-- `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.4`
+- `BROWSER_PHP_VERSION` : The PHP version you need | default : `8.5`
 - `BROWSER_PHP_CLI` : The CLI output mode | default : `xterm`
 
-- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.9.3`
+- `BROWSER_PHP_COMPOSER_VERSION` : The Composer executable version | default : `2.10.1`
 - `BROWSER_PHP_COMPOSER_PATH` : The Composer executable path | default : `vendor/bin`
 - `BROWSER_PHP_COMPOSER_NAME` : The Composer executable name | default : `composer`
 
