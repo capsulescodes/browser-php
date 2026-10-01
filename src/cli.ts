@@ -5,7 +5,7 @@ import { createNodeFsMountHandler, loadNodeRuntime } from '@php-wasm/node';
 import environment from './env';
 
 
-const php : PHP = new PHP( await loadNodeRuntime( environment.php.version, { emscriptenOptions : { ENV : { TERM : environment.php.cli }, processId : process.pid } } ) );
+const php : PHP = new PHP( await loadNodeRuntime( environment.php.version, { emscriptenOptions : { ENV : { ...process.env, TERM : environment.php.cli }, processId : process.pid } } ) );
 
 
 php.mkdir( process.cwd() );

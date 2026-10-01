@@ -46,4 +46,17 @@ describe( 'cli', () =>
 
 		expect( styled.stdout.toString() ).toContain( "\u001b[32mHello World\u001b[0m" );
 	} );
+
+	it( 'should correctly pass the environment variables to PHP', async () =>
+	{
+		vitest.stubEnv( 'BROWSER_PHP_FOO', 'bar' );
+
+		const args = [ '-r', 'echo getenv( "BROWSER_PHP_FOO" );' ];
+
+		const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/cli.ts`, ...args ] );
+
+		expect( task.stdout.toString() ).toContain( 'bar' );
+
+		vitest.stubEnv( 'BROWSER_PHP_FOO', undefined );
+	} );
 } );
