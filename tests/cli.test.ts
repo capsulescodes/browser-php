@@ -15,6 +15,21 @@ describe( 'cli', () =>
 		expect( task.stdout.toString() ).toContain( `PHP ${environment.default.php.version}` );
 	} );
 
+	it( 'should correctly run outside of the test environment', async () =>
+	{
+		const environment = await import( '../src/env' );
+
+		const variables = { ...process.env };
+
+		delete variables.VITEST;
+
+		const args = [ '--version' ];
+
+		const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/cli.ts`, ...args ], { env : variables } );
+
+		expect( task.stdout.toString() ).toContain( `PHP ${environment.default.php.version}` );
+	} );
+
 	it( 'should correctly print xterm style when enabled', async () =>
 	{
 		vitest.stubEnv( 'BROWSER_PHP_CLI', 'not-xterm' );

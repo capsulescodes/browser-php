@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite';
+import { chmodSync } from 'fs';
+import { defineConfig, Plugin } from 'vite';
+
+
+const executablePlugin = () : Plugin => ( {
+	name : 'executable',
+	writeBundle : () => [ 'bin/cli.js', 'bin/server.js' ].forEach( file => chmodSync( file, 0o755 ) )
+} );
 
 
 export default defineConfig( {
+	plugins : [ executablePlugin() ],
 	build : {
 		lib : {
 			entry : {

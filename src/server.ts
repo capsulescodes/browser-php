@@ -2,12 +2,14 @@
 
 import http from 'http';
 import environment from './env';
-import { PHP, PHPRequestHandler, HTTPMethod, PHPRequest } from '@php-wasm/universal';
+import { PHP, PHPRequestHandler, ProcessIdAllocator, HTTPMethod, PHPRequest } from '@php-wasm/universal';
 import { loadNodeRuntime, createNodeFsMountHandler } from '@php-wasm/node';
 
 
 let handler : PHPRequestHandler;
 let loading : boolean;
+
+const allocator = new ProcessIdAllocator( process.pid );
 
 const app = http.createServer( async ( req, res ) =>
 {
@@ -17,7 +19,7 @@ const app = http.createServer( async ( req, res ) =>
 		{
 			loading = true;
 
-			handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
+			handler = new PHPRequestHandler( { phpFactory : async () => new PHP( await loadNodeRuntime( environment.php.version, { emscriptenOptions : { processId : allocator.claim() } } ) ), documentRoot : environment.server.path, absoluteUrl : `${environment.server.host}:${environment.server.port}` } );
 
 			const php = await handler.getPrimaryPhp();
 

@@ -3,7 +3,10 @@ import { t as e } from "../dist/env.js";
 import { PHP as t, sandboxedSpawnHandlerFactory as n } from "@php-wasm/universal";
 import { createNodeFsMountHandler as r, loadNodeRuntime as i } from "@php-wasm/node";
 //#region src/cli.ts
-var a = new t(await i(e.php.version, { emscriptenOptions: { ENV: { TERM: e.php.cli } } }));
+var a = new t(await i(e.php.version, { emscriptenOptions: {
+	ENV: { TERM: e.php.cli },
+	processId: process.pid
+} }));
 a.mkdir(process.cwd()), a.mount(process.cwd(), r(process.cwd())), a.chdir(process.cwd()), await a.setSpawnHandler(n(async () => ({
 	php: a,
 	reap: () => {}

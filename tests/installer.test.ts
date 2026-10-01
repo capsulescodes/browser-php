@@ -6,6 +6,8 @@ import { spawnSync } from 'child_process';
 afterEach( () =>
 {
 	if( fs.existsSync( `${process.cwd()}/vendor` ) ) fs.rmSync( `${process.cwd()}/vendor`, { recursive : true } );
+
+	if( fs.existsSync( `${process.cwd()}/tests/fixtures/qux` ) ) fs.rmSync( `${process.cwd()}/tests/fixtures/qux`, { recursive : true } );
 } );
 
 
@@ -18,6 +20,17 @@ describe( 'installer', () =>
 		expect( task.status ).toEqual( 0 );
 
 		expect( fs.existsSync( `${process.cwd()}/vendor/bin/composer` ) ).toEqual( true );
+	} );
+
+	it( 'should download the composer binary in the project directory', async () =>
+	{
+		const directory = `${process.cwd()}/tests/fixtures/qux`;
+
+		const task = spawnSync( 'node', [ 'node_modules/.bin/tsx', `${process.cwd()}/src/installer.ts` ], { env : { ...process.env, INIT_CWD : directory } } );
+
+		expect( task.status ).toEqual( 0 );
+
+		expect( fs.existsSync( `${directory}/vendor/bin/composer` ) ).toEqual( true );
 	} );
 
 	it( 'should download the given composer binary version', async () =>
