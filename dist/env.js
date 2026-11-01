@@ -1,5 +1,5 @@
 import { config as e } from "@dotenvx/dotenvx";
-//#region src/env.ts
+// src/env.ts
 e({
 	path: process.env.INIT_CWD ? `${process.env.INIT_CWD}/.env` : ".env",
 	ignore: ["MISSING_ENV_FILE"],
@@ -12,7 +12,7 @@ var t = {
 	},
 	composer: {
 		name: process.env.BROWSER_PHP_COMPOSER_NAME ?? "composer",
-		version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.10.3",
+		version: process.env.BROWSER_PHP_COMPOSER_VERSION ?? "2.11.1",
 		path: process.env.BROWSER_PHP_COMPOSER_PATH ?? "vendor/bin"
 	},
 	server: {
@@ -22,5 +22,4 @@ var t = {
 		debug: process.env.BROWSER_PHP_SERVER_DEBUG != null && process.env.BROWSER_PHP_SERVER_DEBUG != "false"
 	}
 };
-//#endregion
 export { t };

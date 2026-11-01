@@ -3,7 +3,7 @@ import { t as e } from "../dist/env.js";
 import { PHP as t, PHPRequestHandler as n, ProcessIdAllocator as r } from "@php-wasm/universal";
 import { createNodeFsMountHandler as i, loadNodeRuntime as a } from "@php-wasm/node";
 import o from "http";
-//#region src/server.ts
+// src/server.ts
 var s, c, l = new r(process.pid);
 o.createServer(async (r, o) => {
 	if (!s) {
@@ -31,4 +31,3 @@ o.createServer(async (r, o) => {
 		e.server.debug && console.log(i, a), delete a.headers["x-frame-options"], Object.keys(a.headers).forEach((e) => o.setHeader(e, a.headers[e])), o.statusCode = a.httpStatusCode, o.end(a.bytes);
 	}
 }).listen(e.server.port, async () => console.log(`\nPHP server is listening on ${e.server.host}:${e.server.port}\n`));
-//#endregion

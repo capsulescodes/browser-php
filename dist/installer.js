@@ -10,4 +10,3 @@ process.env.INIT_CWD === process.cwd() && !process.env.VITEST && process.exit(),
 }).on("error", (e) => {
 	throw e;
 });
-//#endregion

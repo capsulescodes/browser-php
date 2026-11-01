@@ -2,9 +2,12 @@
 import { t as e } from "../dist/env.js";
 import { PHP as t, sandboxedSpawnHandlerFactory as n } from "@php-wasm/universal";
 import { createNodeFsMountHandler as r, loadNodeRuntime as i } from "@php-wasm/node";
-//#region src/cli.ts
+// src/cli.ts
 var a = new t(await i(e.php.version, { emscriptenOptions: {
-	ENV: { TERM: e.php.cli },
+	ENV: {
+		...process.env,
+		TERM: e.php.cli
+	},
 	processId: process.pid
 } }));
 a.mkdir(process.cwd()), a.mount(process.cwd(), r(process.cwd())), a.chdir(process.cwd()), await a.setSpawnHandler(n(async () => ({
@@ -21,4 +24,3 @@ var c = process.stderr.write;
 process.stderr.write = function(e, t, n) {
 	return typeof e == "string" && (e.includes("Program terminated with exit(0)") || e.includes("ErrorEvent")) ? !0 : c.call(process.stderr, e, t, n);
 };
-//#endregion
